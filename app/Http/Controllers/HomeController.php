@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Reciepts;
 use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 
 class HomeController extends Controller
 {
@@ -50,7 +50,7 @@ class HomeController extends Controller
 
     public function showEditRecForm(Reciepts $rec)
     {
-        if (Gate::allows('update-bb', $bb)) {
+        if (Gate::allows('update-bb', $rec)) {
         return view('rec_edit', ['rec' => $rec]);
         } else {throw (new AuthorizationException(
             'Вы не можете исправить чужое объявление'));
