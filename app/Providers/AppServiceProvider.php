@@ -26,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::define('update-bb', function ($user, $bb) {
             return $user->id == $bb->user_id;
-            });
+        });
+
+        Gate::define('delete-bb', [App\Gates\BbGate::class, 'deleteBb']);
     }
 }
