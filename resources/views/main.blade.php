@@ -8,7 +8,7 @@
                     <h3>{{ $rec->title }}</h3>
                 </td>
                 <td>
-                <h3>{{ $rec->content }}</h3>
+                <p>{{ $rec->content }}</p>
                 </td>
             </tr>
             @endforeach

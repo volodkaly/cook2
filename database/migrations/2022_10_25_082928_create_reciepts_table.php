@@ -17,11 +17,21 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->references('user_id')->on('user')->onDelete('restrict');
+            // $table->unsignedBigInteger('user_id');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->boolean('is_modered')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
+
+        Schema::table('reciepts', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();
+        });
+
+        // Schema::table('reciepts', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('user_id');
+        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+        // });
     }
 
     /**

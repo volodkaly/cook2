@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- Route::view('/main', 'main')->name('main');
+ Route::get('/main', [RecController::class, 'index'])->name('main');
 
 Auth::routes();
 

@@ -14,4 +14,14 @@ class RecController extends Controller
     {
         return view('detail', ['rec' => $rec]);
     }
+
+    public function index(Reciepts $rec)
+    {
+        $recs = Reciepts::all();
+      dump($recs);
+        return view('main', ['rec' => $rec, 
+        'recs' => Reciepts::all()
+
+    ]);
+    }
 }

@@ -14,13 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('product_reciepts', function (Blueprint $table) {
-            
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('receipt_id');
-            $table->float('measure');
-            $table->timestamps();
-            $table->softDeletes();
-            $table->foreign('product_id')->on('id')->references('product');
+            $table->foreignId('product_id')->constrained();
+            $table->foreignId('reciept_id')->constrained();
         });
     }
 
