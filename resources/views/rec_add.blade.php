@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
         <label for="txtContent">Description</label>
-        <textarea name="content" id="txtContent" class="form-control" row="3"></textarea>
+        <textarea name="content" id="txtContent" class="form-control" row="3" width=20></textarea>
     </div>
 
     <input type="submit" class="btn btn-primary" value="Add recipe">

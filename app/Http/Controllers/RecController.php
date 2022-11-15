@@ -17,10 +17,8 @@ class RecController extends Controller
 
     public function index(Reciepts $rec)
     {
-        $recs = Reciepts::all();
-      dump($recs);
         return view('main', ['rec' => $rec, 
-        'recs' => Reciepts::all()
+        'recs' => Reciepts::latest()->get()
 
     ]);
     }
