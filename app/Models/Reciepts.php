@@ -22,4 +22,5 @@ class Reciepts extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }
