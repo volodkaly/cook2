@@ -1,0 +1,19 @@
+
+.tablestr {
+  margin: auto;
+  padding:auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 90%;
+  border: 10px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #b3afaf;
+}
