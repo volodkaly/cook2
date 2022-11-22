@@ -14,6 +14,9 @@
         @foreach ($recs as $rec)
         <tr>
             <td>
+                <p>{{$rec->created_at}}<br>{{ "(".$rec->created_at->diffForHumans().")" }}</p>
+            </td>
+            <td>
                 <h3>{{ $rec->title }}</h3>
             </td>
             <td>
