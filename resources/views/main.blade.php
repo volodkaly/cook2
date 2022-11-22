@@ -24,3 +24,13 @@
 </table>
 @endforeach
 @endsection
+@section('comments')
+@foreach ($coms as $com)
+{{Auth::user()->$com->content}}
+@endforeach
+<form action = "comments" method = "post">
+    @csrf
+    <input type = "text" name = "comment" value = "comment">
+</form>
+<a href ="{{route('comments/{comment}')}}" class="btn danger"></a>
+@endsection

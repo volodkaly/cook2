@@ -48,3 +48,5 @@ Route::delete('/home/{rec}', [HomeController::class, 'destroyRec'])
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/{rec}', [RecController::class, 'detail'])->name('detail');
+
+Route::resource('comments', CommentController::class);
