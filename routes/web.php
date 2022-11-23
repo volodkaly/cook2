@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecController;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
  Route::get('/main', [RecController::class, 'index'])->name('main');
+  Route::get('/main2', [CommentController::class, 'index']);
 
 Auth::routes();
 

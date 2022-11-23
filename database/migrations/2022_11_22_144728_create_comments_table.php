@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string(500);
+            $table->string('content');
             $table->timestamps();
             $table->softDeletes();
         });

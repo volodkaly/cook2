@@ -13,11 +13,11 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Comment $comment)
+    public function index(Comment $com)
     {
-        return view('main',['com' => $comment, 
+        return ['com' => $com, 
         'coms' => Comment::latest()->get()
-    ]);
+    ];
     }
 
     /**
