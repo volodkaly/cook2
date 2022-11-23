@@ -23,14 +23,15 @@
     </tr>
 </table>
 @endforeach
+{{ $recs->links() }}
 @endsection
 @section('comments')
 @foreach ($coms as $com)
-{{Auth::user()->$com->content}}
+{{$com->content}}
 @endforeach
 <form action = "comments" method = "post">
     @csrf
     <input type = "text" name = "comment" value = "comment">
 </form>
-<a href ="{{route('comments/{comment}')}}" class="btn danger"></a>
+<a href ="#" class="btn danger"></a>
 @endsection

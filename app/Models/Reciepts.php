@@ -8,10 +8,13 @@ use App\Models\User;
 use App\Models\product_reciept;
 use App\Models\Products;
 
+
+
 class Reciepts extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
 
     public function product()
     {

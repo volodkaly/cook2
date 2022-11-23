@@ -5,7 +5,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 90%;
-  border: 10px solid #ddd;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 5 px;
+  border-color: black;
 }
 
 th,
