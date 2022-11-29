@@ -18,19 +18,20 @@
     <tr>
         <td>
             <h2>{{"Repice title: "}}<br>{{$rec->title }}</h2>
+
             <p style="font-size:200%;" style="text-align:center;">{{"How to cook it: "}}<br>{{$rec->content }}</p>
         </td>
+        @foreach ($rec->comments as $com)
+        <br>{{$com->content}}<br>
+        <a href="{{route('comments.destroy',$com->id)}}" class="btn danger"></a>
+        @endforeach
+        <form action="{{route('comments.store')}}" method="post">
+            @csrf
+            <input type="text" name="content">
+            <input type="hidden" name="reciept_id" value = '{{$rec->id}}'>
+            <input type="submit" class="btn success" value="save">
+        </form>
     </tr>
 </table>
 @endforeach
-@endsection
-@section('comments')
-@foreach ($coms as $com)
-{{Auth::user()->$com->content}}
-@endforeach
-<form action = "comments" method = "post">
-    @csrf
-    <input type = "text" name = "comment" value = "comment">
-</form>
-<a href ="{{route('comments/{comment}')}}" class="btn danger"></a>
 @endsection

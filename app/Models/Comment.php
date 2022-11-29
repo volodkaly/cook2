@@ -14,4 +14,9 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function reciept()
+    {
+        return $this->belongsTo(Reciepts::class);
+    }
 }

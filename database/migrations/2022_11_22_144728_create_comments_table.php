@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string(500);
+            $table->string('content',500);
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('comments', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('reciept_id')->constrained();
         });
     }
 

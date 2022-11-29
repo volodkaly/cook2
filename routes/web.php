@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecController;
 use Illuminate\Support\Facades\Auth;

@@ -15,9 +15,7 @@ class CommentController extends Controller
      */
     public function index(Comment $comment)
     {
-        return view('main',['com' => $comment, 
-        'coms' => Comment::latest()->get()
-    ]);
+        return ['com' => $comment];
     }
 
     /**
@@ -36,11 +34,15 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeComment(Request $request)
+    public function store(Request $request)
     {
-        Auth::user()->reciepts()->create([
-            'content' => $request->content
+        $comment = new Comment([
+            'content'=>$request->input('content'),
+            'user_id'=>Auth::user()->id,
+            'reciept_id'=>$request->input('reciept_id')
         ]);
+       $comment->save();
+       return to_route('main');
     }
 
     /**
@@ -72,7 +74,7 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function updateComment(Request $request, Comment $comment)
+    public function update(Request $request, Comment $comment)
     {
         $comment->fill([
             'content' => $request->content
@@ -86,7 +88,7 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroyComment(Comment $comment)
+    public function destroy(Comment $comment)
     {
         {
             $comment->delete();

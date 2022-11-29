@@ -85,6 +85,7 @@
             @yield('title')
             @yield('content')
             @yield('main')
+            @yield('comments')
         </main>
     </div>
 </body>
