@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
  Route::get('/main', [RecController::class, 'index'])->name('main');
+//   Route::get('/main2', [CommentController::class, 'index']);
 
 Auth::routes();
 

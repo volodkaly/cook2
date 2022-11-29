@@ -9,19 +9,21 @@ use Illuminate\Http\Request;
 class RecController extends Controller
 {
 
-
+    
 
     public function detail(Reciepts $rec)
     {
         return view('detail', ['rec' => $rec]);
     }
 
-    public function index(Reciepts $rec)
+    public function index(Reciepts $rec, Comment $com)
     {
+       
+        
         return view('main', ['rec' => $rec, 
-        'recs' => Reciepts::latest()->get(), 
-        'coms' => Comment::latest()->get()
-
+        'recs' => Reciepts::paginate(10),
+        'com' => $com, 
+        'coms' => Comment::latest()->get(),
     ]);
     }
 }

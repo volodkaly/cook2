@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
+
     {
         Gate::define('update-bb', function ($user, $bb) {
             return $user->id == $bb->user_id;
