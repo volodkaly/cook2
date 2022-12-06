@@ -32,4 +32,9 @@ class Reciepts extends Model
         return $this->hasMany(Comment::class,'reciept_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
 }

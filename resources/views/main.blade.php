@@ -21,6 +21,13 @@
             <p style="font-size:200%;" style="text-align:center;">{{"How to cook it: "}}<br>{{$rec->content }}</p>
         </td>
     </tr>
+    <form action="{{ route('reviews.store') }}" method="post">
+    @csrf
+        <input type="range" name="value" min="0" max="10">
+        <input type="hidden" value ="{{$rec->id}}" name="reciept_id">
+        <input type="submit" value="Submit">
+    </form>
+
 </table>
 @endforeach
 {{ $recs->links() }}
@@ -29,9 +36,9 @@
 @foreach ($coms as $com)
 {{$com->content}}
 @endforeach
-<form action = "comments" method = "post">
+<form action="comments" method="post">
     @csrf
-    <input type = "text" name = "comment" value = "comment">
+    <input type="text" name="comment" value="comment">
 </form>
-<a href ="#" class="btn danger"></a>
+<a href="#" class="btn danger"></a>
 @endsection
